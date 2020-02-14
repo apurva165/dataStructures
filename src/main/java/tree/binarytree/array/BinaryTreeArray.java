@@ -15,7 +15,7 @@ public class BinaryTreeArray {
         if(index > lastIndexUsed){
             return;
         } else {
-            System.out.println(" -> " +data[index] + " -> ");
+            System.out.print(" -> " +data[index] + " -> ");
             preOrder(index * 2);
             preOrder(index * 2 + 1);
         }
