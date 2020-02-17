@@ -10,7 +10,7 @@ public class BFS {
         this.nodeList = listNode;
     }
 
-    void bfd() {
+    void bfs() {
         for (GraphNode node : nodeList) {
             if (!node.isVisited()) {
                 bfsVisit(node);
