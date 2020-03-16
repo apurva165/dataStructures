@@ -1,7 +1,5 @@
 package linkedlist;
 
-import com.sun.org.apache.bcel.internal.generic.SIPUSH;
-
 public class CircularSingleLinkedList {
     private SingleNode head;
     private SingleNode tail;
@@ -55,12 +53,11 @@ public class CircularSingleLinkedList {
             tail.setNext(tail);
             tail = node;
             tail.setNext(head);
-        }
-        else {
+        } else {
             SingleNode tempNode = head;
             int index = 0;
-            while (index < location - 1){
-               tempNode = tempNode.getNext();
+            while (index < location - 1) {
+                tempNode = tempNode.getNext();
                 index++;
             }
             SingleNode nextNode = tempNode.getNext();
@@ -70,15 +67,16 @@ public class CircularSingleLinkedList {
         setSize((getSize() + 1));
     }
 
-    public void traverseCircularLL(){
+    public void traverseCircularLL() {
         SingleNode tempNode = head;
-        for(int i = 0; i <= size; i++){
+        for (int i = 0; i <= size; i++) {
             System.out.println(tempNode.getNext());
             System.out.println("->");
             tempNode = tempNode.getNext();
         }
         System.out.println("\n");
     }
+
     public void searchNode(int nodeValue) {
         SingleNode tempNode = head;
         for (int i = 0; i < getSize(); i++) {
