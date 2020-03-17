@@ -1,6 +1,8 @@
-package linkedlist;
+package linkedlist.circularll;
 
-public class CircularSingleLinkedList {
+import linkedlist.SingleNode;
+
+public class  CircularSingleLinkedList {
     private SingleNode head;
     private SingleNode tail;
     private int size;
@@ -49,11 +51,12 @@ public class CircularSingleLinkedList {
             head = node;
             tail.setNext(head);
         }
-        if (location >= size) {
-            tail.setNext(tail);
-            tail = node;
-            tail.setNext(head);
-        } else {
+//        if (location >= size) {
+//            tail.setNext(tail);
+//            tail = node;
+//            tail.setNext(head);
+//        }
+        else {
             SingleNode tempNode = head;
             int index = 0;
             while (index < location - 1) {
@@ -70,8 +73,8 @@ public class CircularSingleLinkedList {
     public void traverseCircularLL() {
         SingleNode tempNode = head;
         for (int i = 0; i <= size; i++) {
-            System.out.println(tempNode.getNext());
-            System.out.println("->");
+            System.out.print(tempNode.getValue());
+            System.out.print("->");
             tempNode = tempNode.getNext();
         }
         System.out.println("\n");
@@ -81,7 +84,21 @@ public class CircularSingleLinkedList {
         SingleNode tempNode = head;
         for (int i = 0; i < getSize(); i++) {
             if (tempNode.getValue() == nodeValue) {
-                System.out.println("Node found at " + i + "location");
+                System.out.println("Node found at " + i + " location");
+                return;
+            }
+            tempNode = tempNode.getNext();
+        }
+        System.out.println("Node not found");
+    }
+
+    public void deleteSomeNode(int val){
+        SingleNode tempNode = head;
+        for (int i = 0; i < getSize(); i++) {
+            if (tempNode.getNext().getValue() == val) {
+                SingleNode nodeToBeRemoved = tempNode.getNext();
+                tempNode.setNext(nodeToBeRemoved.getNext());
+
                 return;
             }
             tempNode = tempNode.getNext();
